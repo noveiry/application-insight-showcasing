@@ -129,28 +129,6 @@ requests
 | order by timestamp desc
 ```
 
-**4. Dependencies Between Services:**
-```kusto
-dependencies
-| summarize Count = count() by name, target, type
-| order by Count desc
-```
-
-**5. Custom Trace Logs:**
-```kusto
-traces
-| where message contains "Order"
-| project timestamp, severityLevel, message, cloud_RoleName
-| order by timestamp desc
-```
-
-**6. Exception Analysis:**
-```kusto
-exceptions
-| summarize Count = count() by type, outerMessage
-| order by Count desc
-```
-
 ## Viewing Analytics in Azure Portal
 
 1. **Navigate to Application Insights**
